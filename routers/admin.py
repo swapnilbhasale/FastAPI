@@ -1,4 +1,4 @@
-from typing import Annotated
+# from typing import Annotated
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException, Path
 from starlette import status
@@ -23,10 +23,10 @@ def get_db():
 
 
 # dependency injection
-db_dependency = Annotated[Session, Depends(get_db)]
-user_dependency = Annotated[dict, Depends(get_current_user)]
+# db_dependency = Annotated[Session, Depends(get_db)]
+# user_dependency = Annotated[dict, Depends(get_current_user)]
 
-
+'''
 @router.get("/todo", status_code=status.HTTP_200_OK)
 async def read_all(user: user_dependency, db: db_dependency):
     if user is None or user.get('user_role') != 'admin':
@@ -43,3 +43,4 @@ async def delete_todo(user: user_dependency, db: db_dependency, todo_id: int = P
         raise HTTPException(status_code=404, detail='Todo not found')
     db.delete(todo_model)
     db.commit()
+'''
