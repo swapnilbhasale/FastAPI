@@ -1,6 +1,6 @@
 # APIRouter will allow to route from main.py to auth.py
 from datetime import timedelta, datetime
-from typing import Annotated, Optional
+from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, Form
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
@@ -71,7 +71,7 @@ def get_db():
 
 
 # dependency injection
-db_dependency = Annotated[Session, Depends(get_db)]
+# db_dependency = Annotated[Session, Depends(get_db)]
 
 
 def get_password_hash(password):
